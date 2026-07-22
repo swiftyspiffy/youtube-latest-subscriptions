@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YouTube Latest Subscriptions</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <header class="app-header">
+        <span class="app-mark" aria-hidden="true">↻</span>
+        <div>
+          <h1>Latest Subscriptions</h1>
+          <p>Chronological videos only</p>
+        </div>
+      </header>
+
+      <label class="toggle-row" for="enabled">
+        <span>
+          <strong>Filter Subscriptions</strong>
+          <small>Hide recommendations, Shorts, and other interruptions.</small>
+        </span>
+        <span class="switch">
+          <input id="enabled" type="checkbox">
+          <span class="slider" aria-hidden="true"></span>
+        </span>
+      </label>
+
+      <div id="status" class="status" role="status">Checking this page…</div>
+
+      <section class="support">
+        <h2>Layout support</h2>
+        <p>
+          If this page looks wrong, capture its raw DOM so the exact YouTube
+          layout can be supported.
+        </p>
+        <button id="report" type="button" disabled>Review raw DOM report</button>
+        <small>
+          Nothing is uploaded automatically. You will review a privacy warning
+          before any submission.
+        </small>
+      </section>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

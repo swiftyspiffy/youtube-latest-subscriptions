@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Latest Subscriptions",
+  "version": "1.2.0",
+  "description": "Shows only the chronological video feed on YouTube's Subscriptions page.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://youtube-subscription.spiffy.dev/*"],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "YouTube Latest Subscriptions",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://youtube.com/*",
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "profile-registry.js",
+        "profiles/rich-grid-direct-items-v1.js",
+        "content.js"
+      ],
+      "css": ["subscriptions.css"],
+      "run_at": "document_start"
+    }
+  ]
+}

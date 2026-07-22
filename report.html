@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Raw DOM Support Report</title>
+    <link rel="stylesheet" href="report.css">
+  </head>
+  <body>
+    <main>
+      <a class="back" href="https://www.youtube.com/feed/subscriptions">← YouTube Subscriptions</a>
+      <header>
+        <p class="eyebrow">YouTube Latest Subscriptions</p>
+        <h1>Raw DOM support report</h1>
+        <p class="lede">
+          This captures the exact live page structure needed to support a new
+          or modified YouTube layout.
+        </p>
+      </header>
+
+      <section id="loading" class="panel" aria-live="polite">
+        Reading the Subscriptions page…
+      </section>
+
+      <div id="report-content" hidden>
+        <section class="warning">
+          <h2>Review before sharing</h2>
+          <p>
+            The raw DOM may contain your account name, subscriptions, video
+            titles, browsing-related identifiers, and content inserted by
+            other extensions. It is not anonymized or altered.
+          </p>
+        </section>
+
+        <section class="panel summary">
+          <h2>Capture details</h2>
+          <dl>
+            <div><dt>Detected layout</dt><dd id="profile"></dd></div>
+            <div><dt>Page</dt><dd id="page-url"></dd></div>
+            <div><dt>Report size</dt><dd id="report-size"></dd></div>
+          </dl>
+        </section>
+
+        <section class="panel actions-panel">
+          <h2>Inspect locally</h2>
+          <p>Nothing leaves your browser when you preview, copy, or download.</p>
+          <div class="actions">
+            <button id="preview" type="button">Preview raw DOM</button>
+            <button id="copy" type="button">Copy report</button>
+            <button id="download" type="button">Download report</button>
+          </div>
+          <textarea id="raw-preview" readonly hidden aria-label="Raw DOM preview"></textarea>
+        </section>
+
+        <section class="panel submit-panel">
+          <h2>Send for support</h2>
+          <p id="destination"></p>
+          <fieldset class="contact-fields">
+            <legend>Optional contact details</legend>
+            <p>
+              If you want the developer to follow up, choose how you would
+              like to be contacted. You may also describe what went wrong.
+            </p>
+            <div class="contact-grid">
+              <label>
+                <span>Contact method</span>
+                <select id="contact-method">
+                  <option value="">No contact requested</option>
+                  <option value="email">Email</option>
+                  <option value="discord">Discord</option>
+                  <option value="github">GitHub</option>
+                  <option value="other">Other</option>
+                </select>
+              </label>
+              <label>
+                <span>Contact details</span>
+                <input id="contact-value" maxlength="500" placeholder="Email, username, or contact instructions">
+              </label>
+            </div>
+            <label>
+              <span>What happened?</span>
+              <textarea id="support-message" maxlength="2000" placeholder="Describe the unexpected layout or behavior."></textarea>
+            </label>
+          </fieldset>
+          <label class="consent">
+            <input id="consent" type="checkbox">
+            <span>
+              I understand that this sends my complete raw YouTube page DOM
+              plus any contact details above, and I consent to the developer
+              reading it to diagnose layout compatibility.
+            </span>
+          </label>
+          <div class="actions">
+            <button id="send" class="primary" type="button" disabled hidden>
+              Send raw DOM to developer
+            </button>
+            <button id="email" type="button" disabled hidden>Email developer</button>
+          </div>
+          <p id="submit-status" class="submit-status" role="status"></p>
+        </section>
+      </div>
+    </main>
+
+    <script src="support-config.js"></script>
+    <script src="report-client.js"></script>
+    <script src="report.js"></script>
+  </body>
+</html>

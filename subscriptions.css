@@ -1,0 +1,56 @@
+/* Profile: rich-grid-direct-items-v1 */
+html[data-ytls-enabled="true"][data-ytls-profile="rich-grid-direct-items-v1"]
+  ytd-browse[page-subtype="subscriptions"]
+  ytd-rich-grid-renderer
+  > #contents
+  > :not(ytd-rich-item-renderer):not(ytd-continuation-item-renderer):not(ytd-rich-section-renderer:has(a[href="/feed/channels"])) {
+  display: none !important;
+}
+
+html[data-ytls-enabled="true"][data-ytls-profile="rich-grid-direct-items-v1"]
+  ytd-browse[page-subtype="subscriptions"]
+  ytd-rich-grid-renderer
+  > #contents
+  > ytd-rich-item-renderer:not(:has(a[href^="/watch?v="])) {
+  display: none !important;
+}
+
+html[data-ytls-enabled="true"][data-ytls-profile="rich-grid-direct-items-v1"]
+  ytd-browse[page-subtype="subscriptions"]
+  ytd-rich-grid-renderer
+  > #contents
+  > ytd-rich-section-renderer:has(a[href="/feed/channels"]) {
+  display: flex !important;
+}
+
+html[data-ytls-enabled="true"][data-ytls-profile="rich-grid-direct-items-v1"]
+  ytd-browse[page-subtype="subscriptions"]
+  ytd-rich-grid-renderer
+  > #contents
+  > ytd-rich-section-renderer:has(a[href="/feed/channels"])
+  h2 {
+  font-size: 0 !important;
+}
+
+html[data-ytls-enabled="true"][data-ytls-profile="rich-grid-direct-items-v1"]
+  ytd-browse[page-subtype="subscriptions"]
+  ytd-rich-grid-renderer
+  > #contents
+  > ytd-rich-section-renderer:has(a[href="/feed/channels"])
+  h2
+  > #title-text {
+  display: none !important;
+}
+
+html[data-ytls-enabled="true"][data-ytls-profile="rich-grid-direct-items-v1"]
+  ytd-browse[page-subtype="subscriptions"]
+  ytd-rich-grid-renderer
+  > #contents
+  > ytd-rich-section-renderer:has(a[href="/feed/channels"])
+  h2::after {
+  color: var(--yt-spec-text-primary);
+  content: "Most Recently Uploaded";
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.8rem;
+}
